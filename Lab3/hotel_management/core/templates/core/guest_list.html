@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Список гостей</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #e8f4f8;
+            color: #333;
+            margin: 20px;
+        }
+        h1 {
+            color: #007bb5;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        table {
+            width: 80%;
+            margin: 0 auto;
+            border-collapse: collapse;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            background-color: #ffffff;
+            border-radius: 8px;
+            overflow: hidden; /* Для застосування border-radius до таблиці */
+        }
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #007bb5;
+            color: white;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+        tr:nth-child(even) { /* Чергування кольорів рядків */
+            background-color: #f2f8fb;
+        }
+        tr:hover {
+            background-color: #e0f0f8;
+        }
+    </style>
+</head>
+<body>
+    <h1>Детальний список гостей</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Ім'я</th>
+                <th>Прізвище</th>
+                <th>Електронна пошта</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for guest in guests %}
+                <tr>
+                    <td>{{ guest.first_name }}</td>
+                    <td>{{ guest.last_name }}</td>
+                    <td><a href="mailto:{{ guest.email }}">{{ guest.email }}</a></td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

@@ -1,0 +1,18 @@
+{% extends "hotel_web/base.html" %}
+{% block content %}
+<h2>Bookings</h2>
+<a href="{% url 'hotel_web:booking_add' %}">Add Booking</a>
+<ul>
+    {% for booking in bookings %}
+        <li>
+            <a href="{% url 'hotel_web:booking_detail' booking.pk %}">
+                Booking #{{ booking.id }} | Guest: {{ booking.guest.first_name }} {{ booking.guest.last_name }} | Room:
+                {% if booking.room %}{{ booking.room.room_number }}{% else %}N/A{% endif %}
+                | Status: {{ booking.booking_status }} | Check-in: {{ booking.check_in_date }} | Check-out: {{ booking.check_out_date }}
+            </a>
+        </li>
+    {% empty %}
+        <li>No bookings available.</li>
+    {% endfor %}
+</ul>
+{% endblock %}

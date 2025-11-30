@@ -1,0 +1,16 @@
+{% extends "hotel_web/base.html" %}
+{% block content %}
+<h2>Maintenance #{{ object.id }}</h2>
+
+<p><strong>Room:</strong> {{ object.room.room_number }}</p>
+<p><strong>Type:</strong> {{ object.maintenance_type }}</p>
+<p><strong>Description:</strong> {% if object.description %}{{ object.description }}{% else %}N/A{% endif %}</p>
+<p><strong>Start date:</strong> {{ object.start_date }}</p>
+<p><strong>End date:</strong> {% if object.end_date %}{{ object.end_date }}{% else %}N/A{% endif %}</p>
+
+<p>
+    <a href="{% url 'hotel_web:roommaintenance_edit' object.pk %}">Edit</a> |
+    <a href="{% url 'hotel_web:roommaintenance_delete' object.pk %}">Delete</a> |
+    <a href="{% url 'hotel_web:roommaintenance_list' %}">Back to Maintenance</a>
+</p>
+{% endblock %}

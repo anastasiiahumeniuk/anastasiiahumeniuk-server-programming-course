@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Properties Table</title>
+</head>
+<body>
+<h2>Properties</h2>
+
+<table border="1" cellpadding="10">
+    <tr>
+        <th>ID</th>
+        <th>Address</th>
+        <th>City</th>
+        <th>Type</th>
+        <th>Price</th>
+        <th>Status</th>
+        <th>Delete</th>
+    </tr>
+    {% for property in properties %}
+    <tr>
+        <td>{{ property.property_id }}</td>
+        <td>{{ property.address }}</td>
+        <td>{{ property.city }}</td>
+        <td>{{ property.property_type }}</td>
+        <td>{{ property.price }}</td>
+        <td>{{ property.property_status }}</td>
+        <td>
+            <form method="post" action="{% url 'delete-property' property.property_id %}">
+                {% csrf_token %}
+                <button type="submit">Delete</button>
+            </form>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+
+</body>
+</html>

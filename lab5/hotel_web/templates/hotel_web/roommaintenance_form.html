@@ -1,0 +1,10 @@
+<!-- hotel_web/templates/hotel_web/roommaintenance_form.html -->
+<h1>{% if maintenance %}Редагувати{% else %}Додати{% endif %} обслуговування кімнати</h1>
+
+<form method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit">Зберегти</button>
+</form>
+
+<a href="{% url 'hotel_web:roommaintenance_list' %}">Відмінити</a>

@@ -1,0 +1,9 @@
+<!-- hotel_web/templates/hotel_web/payment_confirm_delete.html -->
+<h1>Видалити Payment #{{ payment.id }}?</h1>
+
+<form method="post">
+  {% csrf_token %}
+  <button type="submit">Підтвердити видалення</button>
+</form>
+
+<a href="{% url 'hotel_web:payment_detail' payment.id %}">Скасувати</a>

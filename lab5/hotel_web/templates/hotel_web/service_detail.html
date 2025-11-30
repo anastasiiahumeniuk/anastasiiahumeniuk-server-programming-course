@@ -1,0 +1,12 @@
+{% extends "hotel_web/base.html" %}
+{% block content %}
+<h2>Service: {{ object.service_name }}</h2>
+<p>Category: {% if object.service_category %}{{ object.service_category.name }}{% else %}No category{% endif %}</p>
+<p>Price: {{ object.price }}</p>
+<p>Description: {{ object.service_description|default:"No description" }}</p>
+
+<p>
+    <a href="{% url 'hotel_web:service_edit' object.pk %}">Edit</a> |
+    <a href="{% url 'hotel_web:service_delete' object.pk %}">Delete</a>
+</p>
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends "hotel_web/base.html" %}
+{% block content %}
+<h2>Payments</h2>
+<a href="{% url 'hotel_web:payment_add' %}">Add Payment</a>
+<ul>
+    {% for payment in payments %}
+        <li>
+            <a href="{% url 'hotel_web:payment_detail' payment.pk %}">
+                Payment #{{ payment.id }} | Booking #{{ payment.booking.id }} | Amount: {{ payment.amount }} | Method: {{ payment.payment_method }} | Status: {{ payment.payment_status }}
+            </a>
+        </li>
+    {% empty %}
+        <li>No payments available.</li>
+    {% endfor %}
+</ul>
+{% endblock %}

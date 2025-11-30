@@ -1,0 +1,22 @@
+{% extends "hotel_web/base.html" %}
+{% block content %}
+<h2>Payment #{{ object.id }}</h2>
+
+<p>Booking: #{{ object.booking.id }}</p>
+<p>Amount: {{ object.amount }}</p>
+<p>Method: {{ object.payment_method }}</p>
+<p>Status: {{ object.payment_status }}</p>
+<p>Transaction Code: {{ object.transaction_code }}</p>
+<p>Payment Date: {{ object.payment_date }}</p>
+<p>Partial Payment: {% if object.partial_payment %}Yes{% else %}No{% endif %}</p>
+<p>Created At: {{ object.created_at }}</p>
+{% if object.confirmed_at %}
+<p>Confirmed At: {{ object.confirmed_at }}</p>
+{% endif %}
+
+<p>
+    <a href="{% url 'hotel_web:payment_edit' object.pk %}">Edit</a> |
+    <a href="{% url 'hotel_web:payment_delete' object.pk %}">Delete</a>
+</p>
+
+{% endblock %}

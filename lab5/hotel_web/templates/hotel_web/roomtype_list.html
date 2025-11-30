@@ -1,0 +1,16 @@
+{% extends "hotel_web/index.html" %}
+{% block content %}
+<h2>Room Types</h2>
+<a href="{% url 'hotel_web:roomtype_add' %}">Add Room Type</a>
+<ul>
+    {% for roomtype in roomtypes %}
+        <li>
+            <a href="{% url 'hotel_web:roomtype_detail' roomtype.pk %}">
+                {{ roomtype.name }} | Base Price: {{ roomtype.base_price }}
+            </a>
+        </li>
+    {% empty %}
+        <li>No room types available.</li>
+    {% endfor %}
+</ul>
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends "hotel_web/base.html" %}
+{% block content %}
+<h2>Feedbacks</h2>
+
+<a href="{% url 'hotel_web:feedback_add' %}">Add Feedback</a>
+
+<ul>
+    {% for feedback in feedbacks %}
+        <li>
+            <a href="{% url 'hotel_web:feedback_detail' feedback.pk %}">
+                Feedback #{{ feedback.id }}
+                | Guest: {{ feedback.guest.first_name }} {{ feedback.guest.last_name }}
+                | Rating: {{ feedback.rating }}
+                | Booking: #{{ feedback.booking.id }}
+            </a>
+        </li>
+    {% empty %}
+        <li>No feedbacks available.</li>
+    {% endfor %}
+</ul>
+{% endblock %}

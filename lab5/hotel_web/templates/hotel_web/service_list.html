@@ -1,0 +1,18 @@
+{% extends "hotel_web/base.html" %}
+{% block content %}
+<h2>Services</h2>
+<a href="{% url 'hotel_web:service_add' %}">Add Service</a>
+<ul>
+    {% for service in services %}
+        <li>
+            <a href="{% url 'hotel_web:service_detail' service.pk %}">
+                {{ service.service_name }} | Category:
+                {% if service.service_category %}{{ service.service_category.name }}{% else %}No category{% endif %}
+                | Price: {{ service.price }}
+            </a>
+        </li>
+    {% empty %}
+        <li>No services available.</li>
+    {% endfor %}
+</ul>
+{% endblock %}

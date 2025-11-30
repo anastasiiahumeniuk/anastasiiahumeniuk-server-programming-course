@@ -1,0 +1,9 @@
+<!-- hotel_web/templates/hotel_web/roommaintenance_confirm_delete.html -->
+<h1>Видалити Maintenance #{{ maintenance.id }}?</h1>
+
+<form method="post">
+  {% csrf_token %}
+  <button type="submit">Підтвердити видалення</button>
+</form>
+
+<a href="{% url 'hotel_web:roommaintenance_detail' maintenance.id %}">Скасувати</a>

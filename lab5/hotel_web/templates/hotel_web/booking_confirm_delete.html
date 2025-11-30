@@ -1,0 +1,8 @@
+<h1>Видалити Booking #{{ booking.id }}?</h1>
+
+<form method="post">
+  {% csrf_token %}
+  <button type="submit">Підтвердити видалення</button>
+</form>
+
+<a href="{% url 'hotel_web:booking_detail' booking.id %}">Скасувати</a>

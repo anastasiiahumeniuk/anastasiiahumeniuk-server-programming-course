@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Confirm Delete Property</title>
+</head>
+<body>
+<h2>Видалити властивість {{ object.address }} ({{ object.city }})?</h2>
+
+<form method="post">
+    {% csrf_token %}
+    <button type="submit">Підтвердити видалення</button>
+    <a href="{% url 'properties-table' %}">Скасувати</a>
+</form>
+
+</body>
+</html>

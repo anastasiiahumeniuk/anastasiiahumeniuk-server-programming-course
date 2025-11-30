@@ -1,0 +1,9 @@
+<h1>{% if booking %}Редагувати{% else %}Додати{% endif %} бронювання</h1>
+
+<form method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit">Зберегти</button>
+</form>
+
+<a href="{% url 'hotel_web:booking_list' %}">Відмінити</a>

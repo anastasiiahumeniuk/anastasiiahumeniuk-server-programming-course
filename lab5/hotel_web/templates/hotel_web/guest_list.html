@@ -1,0 +1,16 @@
+{% extends "hotel_web/base.html" %}
+{% block content %}
+<h2>Guests</h2>
+<a href="{% url 'hotel_web:guest_add' %}">Add Guest</a>
+<ul>
+    {% for guest in guests %}
+        <li>
+            <a href="{% url 'hotel_web:guest_detail' guest.pk %}">
+                {{ guest.first_name }} {{ guest.last_name }} | Email: {{ guest.email }} | Phone: {{ guest.phone_number }}
+            </a>
+        </li>
+    {% empty %}
+        <li>No guests available.</li>
+    {% endfor %}
+</ul>
+{% endblock %}

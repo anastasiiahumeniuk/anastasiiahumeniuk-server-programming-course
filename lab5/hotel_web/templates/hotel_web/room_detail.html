@@ -1,0 +1,22 @@
+{% extends "hotel_web/index.html" %}
+{% block content %}
+<h2>Room Detail</h2>
+<ul>
+    <li>Room Number: {{ object.room_number }}</li>
+    <li>Type:
+        {% if object.room_type %}
+            {{ object.room_type.name }}
+        {% else %}
+            N/A
+        {% endif %}
+    </li>
+    <li>Floor: {{ object.floor_number }}</li>
+    <li>Capacity: {{ object.capacity }}</li>
+    <li>Price per night: {{ object.price_per_night }}</li>
+    <li>Status: {{ object.status }}</li>
+    <li>Description: {{ object.description }}</li>
+</ul>
+<a href="{% url 'hotel_web:room_edit' object.pk %}">Edit</a> |
+<a href="{% url 'hotel_web:room_delete' object.pk %}">Delete</a> |
+<a href="{% url 'hotel_web:room_list' %}">Back to list</a>
+{% endblock %}

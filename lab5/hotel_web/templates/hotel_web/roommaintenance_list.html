@@ -1,0 +1,22 @@
+{% extends "hotel_web/base.html" %}
+{% block content %}
+<h2>Room Maintenance</h2>
+
+<a href="{% url 'hotel_web:roommaintenance_add' %}">Add Maintenance</a>
+
+<ul>
+    {% for maintenance in maintenances %}
+        <li>
+            <a href="{% url 'hotel_web:roommaintenance_detail' maintenance.pk %}">
+                Maintenance #{{ maintenance.id }}
+                | Room: {{ maintenance.room.room_number }}
+                | Type: {{ maintenance.maintenance_type }}
+                | Date: {{ maintenance.maintenance_date }}
+                | Notes: {{ maintenance.notes }}
+            </a>
+        </li>
+    {% empty %}
+        <li>No maintenance records available.</li>
+    {% endfor %}
+</ul>
+{% endblock %}

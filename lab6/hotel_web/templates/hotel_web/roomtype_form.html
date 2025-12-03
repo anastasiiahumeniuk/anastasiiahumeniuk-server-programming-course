@@ -1,0 +1,20 @@
+<!-- hotel_web/templates/hotel_web/roomtype_form.html -->
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>{% if object %}Edit Room Type{% else %}Add Room Type{% endif %}</title>
+</head>
+<body>
+    <h1>{% if object %}Edit Room Type{% else %}Add Room Type{% endif %}</h1>
+
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Save</button>
+    </form>
+
+    <p>
+        <a href="{% url 'hotel_web:roomtype_list' %}">Back to Room Types</a>
+    </p>
+</body>
+</html>

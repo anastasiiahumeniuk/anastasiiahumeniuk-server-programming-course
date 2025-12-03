@@ -1,0 +1,9 @@
+<!-- hotel_web/templates/hotel_web/feedback_confirm_delete.html -->
+<h1>Видалити Feedback #{{ feedback.id }}?</h1>
+
+<form method="post">
+  {% csrf_token %}
+  <button type="submit">Підтвердити видалення</button>
+</form>
+
+<a href="{% url 'hotel_web:feedback_detail' feedback.id %}">Скасувати</a>

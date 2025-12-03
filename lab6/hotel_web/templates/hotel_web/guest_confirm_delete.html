@@ -1,0 +1,16 @@
+<!-- hotel_web/templates/hotel_web/guest_confirm_delete.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Delete Guest</title>
+</head>
+<body>
+    <h1>Delete Guest</h1>
+    <p>Are you sure you want to delete {{ object.first_name }} {{ object.last_name }}?</p>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Yes, delete</button>
+    </form>
+    <a href="{% url 'hotel_web:guest_detail' object.id %}">Cancel</a>
+</body>
+</html>

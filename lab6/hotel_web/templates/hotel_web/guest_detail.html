@@ -1,0 +1,16 @@
+{% extends "hotel_web/base.html" %}
+{% block content %}
+<h2>Guest: {{ object.first_name }} {{ object.last_name }}</h2>
+
+<p><strong>Email:</strong> {{ object.email }}</p>
+<p><strong>Phone:</strong> {{ object.phone_number }}</p>
+<p><strong>Passport:</strong> {{ object.passport_series }}-{{ object.passport_number }}</p>
+<p><strong>Date of Birth:</strong> {% if object.date_of_birth %}{{ object.date_of_birth }}{% else %}N/A{% endif %}</p>
+<p><strong>Registration Date:</strong> {{ object.registration_date }}</p>
+
+<p>
+    <a href="{% url 'hotel_web:guest_edit' object.pk %}">Edit</a> |
+    <a href="{% url 'hotel_web:guest_delete' object.pk %}">Delete</a> |
+    <a href="{% url 'hotel_web:guest_list' %}">Back to Guests</a>
+</p>
+{% endblock %}

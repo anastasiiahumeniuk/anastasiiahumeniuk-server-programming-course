@@ -1,0 +1,26 @@
+{% extends "hotel_web/base.html" %}
+{% block content %}
+<h2>Booking #{{ object.id }}</h2>
+
+<p>Guest: {{ object.guest.first_name }} {{ object.guest.last_name }}</p>
+<p>Room: {% if object.room %}{{ object.room.room_number }}{% else %}N/A{% endif %}</p>
+<p>Status: {{ object.booking_status }}</p>
+<p>Check-in: {{ object.check_in_date }}</p>
+<p>Check-out: {{ object.check_out_date }}</p>
+<p>Services:</p>
+<ul>
+    {% for service in object.services.all %}
+        <li>{{ service.service_name }} | Price: {{ service.price }}</li>
+    {% empty %}
+        <li>No services added.</li>
+    {% endfor %}
+</ul>
+
+<p>Total Price: {{ object.total_price }}</p>
+
+<p>
+    <a href="{% url 'hotel_web:booking_edit' object.pk %}">Edit</a> |
+    <a href="{% url 'hotel_web:booking_delete' object.pk %}">Delete</a>
+</p>
+
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends "hotel_web/base.html" %}
+{% block content %}
+<h1>Welcome to the Hotel Management System</h1>
+
+<ul>
+    <li><a href="{% url 'hotel_web:guest_list' %}">Guests</a></li>
+    <li><a href="{% url 'hotel_web:room_list' %}">Rooms</a></li>
+    <li><a href="{% url 'hotel_web:roomtype_list' %}">Room Types</a></li>
+    <li><a href="{% url 'hotel_web:booking_list' %}">Bookings</a></li>
+    <li><a href="{% url 'hotel_web:payment_list' %}">Payments</a></li>
+    <li><a href="{% url 'hotel_web:service_list' %}">Services</a></li>
+    <li><a href="{% url 'hotel_web:servicecategory_list' %}">Service Categories</a></li>
+    <li><a href="{% url 'hotel_web:feedback_list' %}">Feedback</a></li>
+    <li><a href="{% url 'hotel_web:roommaintenance_list' %}">Room Maintenance</a></li>
+</ul>
+
+{% endblock %}

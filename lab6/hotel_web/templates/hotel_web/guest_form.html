@@ -1,0 +1,16 @@
+<!-- hotel_web/templates/hotel_web/guest_form.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% if object %}Edit{% else %}Add{% endif %} Guest</title>
+</head>
+<body>
+    <h1>{% if object %}Edit{% else %}Add{% endif %} Guest</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Save</button>
+    </form>
+    <a href="{% url 'hotel_web:guest_list' %}">Back to Guests</a>
+</body>
+</html>

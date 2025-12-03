@@ -1,0 +1,8 @@
+{% extends "hotel_web/index.html" %}
+{% block content %}
+<h2>{{ object.name }}</h2>
+
+<a href="{% url 'hotel_web:servicecategory_edit' object.pk %}">Edit</a>
+<a href="{% url 'hotel_web:servicecategory_delete' object.pk %}">Delete</a>
+<a href="{% url 'hotel_web:servicecategory_list' %}">Back to list</a>
+{% endblock %}

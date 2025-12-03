@@ -1,0 +1,10 @@
+<!-- hotel_web/templates/hotel_web/payment_form.html -->
+<h1>{% if payment %}Редагувати{% else %}Додати{% endif %} платіж</h1>
+
+<form method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit">Зберегти</button>
+</form>
+
+<a href="{% url 'hotel_web:payment_list' %}">Відмінити</a>
